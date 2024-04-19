@@ -18,7 +18,7 @@
         <div class="col-lg-8">
             <article>
                 <!--추가-->
-                <input type="hidden" id="article-id" th:value="${diary.id}">
+                <input type="hidden" id="diary-id" th:value="${diary.id}">
                 <header class="mb-4">
                     <h1 class="fw-bolder mb-1" th:text="${diary.title}"></h1>
                     <div class="text-muted fst-italic mb-2" th:text="|Posted on
@@ -28,14 +28,14 @@
                     <p class="fs-5 mb-4" th:text="${diary.content}"></p>
                 </section>
                 <!--추가-->
-                <button type="button" id="modify-btn"
-                        class="btn btn-primary btn-sm">수정
-                </button>
-
                 <!--<button type="button" id="modify-btn"
-                        th:onclick="|location.href='@{/new-article?id={articleId}(articleId=${article.id})}'|"
                         class="btn btn-primary btn-sm">수정
                 </button>-->
+
+                <button type="button" id="modify-btn"
+                        th:onclick="|location.href='@{/new-diary?id={diaryId}(diaryId=${diary.id})}'|"
+                        class="btn btn-primary btn-sm">수정
+                </button>
                 <button type="button" id="delete-btn" class="btn btn-secondary btn-sm">삭제</button>
             </article>
         </div>
@@ -43,7 +43,7 @@
 </div>
 
 <!--추가-->
-<!--<script src="/js/article.js"></script>-->
+<script src="/js/Diary.js"></script>
 </body>
 
 </html>

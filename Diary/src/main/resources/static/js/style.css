@@ -1,0 +1,8 @@
+.fc-toolbar-chunk {
+    display: flex;
+align-items: center;
+}
+.fc-toolbar-title {
+    font-weight: bold;
+    color: red;
+}

@@ -1,18 +1,17 @@
 package com.codehows.diary.Domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
+@NoArgsConstructor
 public class Diary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +24,18 @@ public class Diary {
     @Column(name = "content" , nullable = false)
     private String content;
 
+    @Column(name = "start" , nullable = false)
+    private LocalDate start;
+
+
     @Builder
-    public Diary(String title, String content){
+    public Diary(String title, String content, LocalDate start){
         this.title =  title;
         this.content = content;
+        this.start = start ;
     }
 
-    public void update(String title, String content){
+    public void update(String title, String content ){
         this.title = title;
         this.content= content;
     }

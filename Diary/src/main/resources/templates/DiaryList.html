@@ -12,6 +12,7 @@
 
     <link href='/fullcalendar-5.11.5/lib/main.css' rel='stylesheet' />
     <script src='/fullcalendar-5.11.5/lib/main.js'></script>
+    <link rel="stylesheet" href="/js/style.css" />
     <title> My Diary List </title>
 
     <style>
@@ -122,6 +123,9 @@
 <div class="container">
 
     <h1>My Diary Lists </h1>
+    <button type="button" id="create-btn"
+            th:onclick="|location.href='@{/new-diary}'|"
+            class="btn btn-secondary btn-sm mb-3">글 등록</button>
 
     <div class="row">
         <div class="col-md-8 blog-main">
@@ -164,25 +168,52 @@
 
     </div><!-- /.row -->
     <script>
+
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prevYear,prev,next,nextYear today',
+                    center: 'title', // 중앙에 제목 표시
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                title: function(info) {
+                    return info.date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' });
+                },
+                selectable: true,
+                selectMirror: true,
+                navLinks: true,
+                editable: true,
                 initialView: 'dayGridMonth',
+                weekends: true,
+                dayMaxEvents: true,
                 dateClick: function(info) {
-                    var date = info.dateStr; // 클릭한 날짜를 가져옴
-                    window.location.href = '/diaries?date=' + date; // 적절한 URL로 이동
-                }
+                    var date = info.dateStr;
+                    window.open('http://localhost:8080/new-diary?date=' + date, '_self');
+                },
+                dateClick: function(info) {
+                    var date = info.dateStr;
+                    // 데이터를 가져오기 위한 AJAX 요청
+                    fetch('/get-diary?date=' + date)
+                        .then(response => response.json())
+                        .then(data => {
+                            // 가져온 데이터로 제목과 내용 필드 업데이트
+                            document.getElementById('title').value = data.title;
+                            document.getElementById('content').value = data.content;
+                        })
+                        .catch(error => console.error('데이터를 불러오는 중 오류 발생:', error));
+                },
+
+                events: 'http://localhost:8080/api/diaries'
             });
             calendar.render();
         });
 
+
     </script>
-    <title>MyCalendar</title>
-    </head>
-    <body>
+
     <h1>MyCalendar</h1>
     <div id='calendar'></div>
-    </body>
 </div>
 
 </body>

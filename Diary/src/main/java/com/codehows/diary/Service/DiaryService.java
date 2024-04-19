@@ -15,10 +15,10 @@ import java.util.List;
 public class DiaryService {
     private final DiaryRepository diaryRepository;
  //일기장 글추가 메서드
+
     public Diary save(AddDiaryRequest request){
         return diaryRepository.save(request.toEntity());
     }
-
     public List<Diary> findAll(){
         return diaryRepository.findAll();
     }
