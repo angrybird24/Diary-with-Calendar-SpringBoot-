@@ -15,10 +15,11 @@ public class AddDiaryRequest {
     private String content;
     private LocalDate start;
 
-    public Diary toEntity(){
+    public Diary toEntity(String author){
         return Diary.builder()
                 .title(title)
                 .content(content)
+                .author(author)
                 .start(start != null ? start : LocalDate.now())
                 .build();
     }

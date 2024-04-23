@@ -8,7 +8,22 @@ spring:
 
   datasource:
     url: jdbc:h2:mem:test
-
+    hikari:
+      username: sa
   h2:
     console:
       enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 948326814357-qtd13sn3fhnn42bmvocgfrkbropuec7a.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+jwt:
+  issuer: test@test.com
+  secret_key: study-springboot

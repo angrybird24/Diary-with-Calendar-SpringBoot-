@@ -27,9 +27,12 @@ public class Diary {
     @Column(name = "start" , nullable = false)
     private LocalDate start;
 
+    @Column(name = "author" , nullable = false)
+    private String author;
 
     @Builder
-    public Diary(String title, String content, LocalDate start){
+    public Diary( String author , String title, String content,LocalDate start){
+        this.author = author;
         this.title =  title;
         this.content = content;
         this.start = start ;

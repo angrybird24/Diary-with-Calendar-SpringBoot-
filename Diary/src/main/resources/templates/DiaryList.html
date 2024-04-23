@@ -12,6 +12,8 @@
 
     <link href='/fullcalendar-5.11.5/lib/main.css' rel='stylesheet' />
     <script src='/fullcalendar-5.11.5/lib/main.js'></script>
+    <script src="/js/Diary.js"></script>
+    <script src="/js/token.js"></script>
     <link rel="stylesheet" href="/js/style.css" />
     <title> My Diary List </title>
 
@@ -126,7 +128,7 @@
     <button type="button" id="create-btn"
             th:onclick="|location.href='@{/new-diary}'|"
             class="btn btn-secondary btn-sm mb-3">글 등록</button>
-
+    <button type="button" class="btn btn-secondary" onclick="location.href='/logout'">로그아웃</button>
     <div class="row">
         <div class="col-md-8 blog-main">
 

@@ -16,6 +16,7 @@ public class DiaryViewResponse {
     private  String content;
     private LocalDateTime createdAt;
     private LocalDate start;
+    private String author;
     public DiaryViewResponse(Diary diary) {
         this.id = diary.getId();
         this.title = diary.getTitle();

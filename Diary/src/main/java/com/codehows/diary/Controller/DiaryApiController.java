@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,8 +21,8 @@ public class DiaryApiController {
 
     @PostMapping("/api/diaries")
     //@Request body 로 요청 본문 값 매핑
-    public ResponseEntity<Diary> addDiary(@RequestBody AddDiaryRequest request){
-        Diary savedDiary = diaryService.save(request);
+    public ResponseEntity<Diary> addDiary(@RequestBody AddDiaryRequest request, Principal principal){
+        Diary savedDiary = diaryService.save(request,principal.getName());
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedDiary);
