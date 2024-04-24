@@ -22,7 +22,7 @@
     <section id="upload" class="feature">
       <h2>게시글 사진 업로드</h2>
       <p>게시글에 사진을 업로드할 수 있는 기능을 제공합니다.</p>
-      <img src="placeholder.jpg" alt="사진 업로드 예시">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnJnmq%2FbtsGUR74hKM%2F4tMhotHeiCQPyEf86GyAYK%2Fimg.png" alt="">
     </section>
     <section id="editor" class="feature">
       <h2>TOAST UI Editor 글쓰기 페이지</h2>
