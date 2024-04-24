@@ -1,56 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>웹 페이지 예제</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
-    }
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    nav ul li {
-      display: inline-block;
-      margin-right: 10px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      margin-top: 40px;
-    }
-    .feature {
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 5px;
-    }
-    .feature img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-    }
-  </style>
-</head>
+ 
 <body>
   <header>
     <h1>웹 페이지 예제</h1>
