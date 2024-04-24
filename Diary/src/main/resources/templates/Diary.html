@@ -24,8 +24,10 @@
                     <div class="text-muted fst-italic mb-2" th:text="|Posted on
                                 ${#temporals.format(diary.createdAt, 'yyyy-MM-dd HH:mm')} By ${diary.author}|"></div>
                 </header>
+
+
                 <section class="mb-5">
-                    <p class="fs-5 mb-4" th:text="${diary.content}"></p>
+                    <p class="fs-5 mb-4" th:utext="${diary.content}"></p>
                 </section>
                 <!--추가-->
                 <!--<button type="button" id="modify-btn"

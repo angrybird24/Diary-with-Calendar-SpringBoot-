@@ -4,6 +4,7 @@ const deleteButton = document.getElementById('delete-btn');
 if (deleteButton) {
     deleteButton.addEventListener('click', event => {
         let id = document.getElementById('diary-id').value;
+
         function success() {
             alert('삭제가 완료되었습니다.');
             location.replace('/diaries');
@@ -14,7 +15,7 @@ if (deleteButton) {
             location.replace('/diaries');
         }
 
-        httpRequest('DELETE',`/api/diaries/${id}`, null, success, fail);
+        httpRequest('DELETE', `/api/diaries/${id}`, null, success, fail);
     });
 }
 
@@ -28,7 +29,7 @@ if (modifyButton) {
 
         body = JSON.stringify({
             title: document.getElementById('title').value,
-            content: document.getElementById('content').value
+            content: editor.getHTML(),
         })
 
         function success() {
@@ -41,7 +42,7 @@ if (modifyButton) {
             location.replace(`/diaries/${id}`);
         }
 
-        httpRequest('PUT',`/api/diaries/${id}`, body, success, fail);
+        httpRequest('PUT', `/api/diaries/${id}`, body, success, fail);
     });
 }
 
@@ -53,18 +54,20 @@ if (createButton) {
     createButton.addEventListener('click', event => {
         body = JSON.stringify({
             title: document.getElementById('title').value,
-            content: document.getElementById('content').value
+            content: editor.getHTML(),
         });
+
         function success() {
             alert('등록 완료되었습니다.');
             location.replace('/diaries');
         };
+
         function fail() {
             alert('등록 실패했습니다.');
             location.replace('/diaries');
         };
 
-        httpRequest('POST','/api/diaries', body, success, fail)
+        httpRequest('POST', '/api/diaries', body, success, fail)
     });
 }
 
@@ -199,3 +202,4 @@ function httpRequest(method, url, body, success, fail) {
 //         });
 //     });
 // }
+

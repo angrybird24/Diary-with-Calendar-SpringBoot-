@@ -21,7 +21,7 @@ public class Diary {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "content" , nullable = false)
+    @Column(name = "content" , nullable = false , length = 10000000)
     private String content;
 
     @Column(name = "start" , nullable = false)
